@@ -18,10 +18,7 @@ class LinterGolint extends Linter
 
   constructor: (editor)->
     super(editor)
-    atom.config.observe 'linter-golint.golintExecutablePath', =>
+    atom.config.observe 'linter-golint.golintExecutablePath', (newValue) ->
       @executablePath = atom.config.get 'linter-golint.golintExecutablePath'
-
-  destroy: ->
-    atom.config.unobserve 'linter-golint.golintExecutablePath'
 
 module.exports = LinterGolint
